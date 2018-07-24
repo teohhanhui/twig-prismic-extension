@@ -1,0 +1,28 @@
+{
+    "name": "tilleuls/twig-prismic-extension",
+    "description": "Twig extension for Prismic CMS integration",
+    "keywords": ["twig", "prismic", "prismicio", "CMS", "content management", "headless", "API", "twig extension", "extension"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Teoh Han Hui",
+            "email": "hanhui@les-tilleuls.coop"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+
+        "prismic/php-sdk": "^4.0@beta",
+        "twig/twig": "^2.0"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "CoopTilleuls\\Twig\\Prismic\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
