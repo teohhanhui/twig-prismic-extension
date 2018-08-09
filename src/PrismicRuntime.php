@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CoopTilleuls\Twig\Prismic;
 
 use Prismic\Api;
+use Prismic\Dom\RichText;
 use Prismic\SearchForm;
 use Twig\Extension\RuntimeExtensionInterface;
 
@@ -48,5 +49,21 @@ final class PrismicRuntime implements RuntimeExtensionInterface
         }
 
         return $form->submit();
+    }
+
+    /**
+     * @param object $richText
+     *
+     * @see https://github.com/prismicio/php-kit/issues/152
+     */
+    public static function richTextAsText($richText): string
+    {
+        $result = RichText::asText($richText);
+
+        if ("\n" === $result[\strlen($result) - 1]) {
+            $result = substr($result, 0, \strlen($result) - 1);
+        }
+
+        return $result;
     }
 }

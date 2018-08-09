@@ -28,7 +28,8 @@ final class PrismicExtension extends AbstractExtension
     {
         return [
             new TwigFilter('prismic_query', [PrismicRuntime::class, 'query']),
-            new TwigFilter('prismic_richtext_text', [RichText::class, 'asText']),
+            /** @see https://github.com/prismicio/php-kit/issues/152 */
+            new TwigFilter('prismic_richtext_text', [PrismicRuntime::class, 'richTextAsText']),
             new TwigFilter('prismic_richtext_html', [RichText::class, 'asHtml'], [
                 'is_safe' => ['html'],
             ]),
